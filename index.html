@@ -262,8 +262,12 @@
   <script>
     function flub(path) {
       const blob = path.parentElement.parentElement;
+
       blob.classList.add('animated');
       setTimeout(() => blob.classList.remove('animated'), 400);
+
+      const soundName = blob.getAttribute('sound');
+      audioPlay(`recordings/${soundName}.mp3`);
     }
 
     function hintFlub(path) {
@@ -275,5 +279,22 @@
       const blob = path.parentElement.parentElement;
       blob.classList.remove('hinted');
     }
+
+    async function audioPlay(url) {
+      const context = new AudioContext();
+      const source = context.createBufferSource();
+      const audioBuffer = await fetch(url, {
+  mode: 'cors',
+  headers: {
+    'Access-Control-Allow-Origin':'*'
+  }
+})
+        .then(res => res.arrayBuffer())
+        .then(ArrayBuffer => context.decodeAudioData(ArrayBuffer));
+
+      source.buffer = audioBuffer;
+      source.connect(context.destination);
+      source.start();
+    };
   </script>
 </html>
