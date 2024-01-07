@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<head>
+  <style>
+    #main-blob-container {
+      height: 80%;
+      aspect-ratio: 1;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .blob.animated {
+      animation: 0.4s linear flub;
+    }
+
+    .blob.hinted {
+      transform: scale(0.98);
+    }
+
+    .blob path {
+      cursor: pointer;
+    }
+
+    @keyframes flub {
+      0% {
+        transform: scale(1, 1)
+      }
+
+      10% {
+        transform: scale(0.7, 0.7)
+      }
+
+      40% {
+        transform: scale(1.1, 1.1)
+      }
+
+      70% {
+        transform: scale(0.9, 0.9)
+      }
+
+      85% {
+        transform: scale(1.1, 1.1)
+      }
+
+      100% {
+        transform: scale(1, 1)
+      }
+    }
+  </style>
+</head>
+<html>
+  <body style="width:100vw;height:100vh">
+    <div id="main-blob-container">
+      <!-- top_bloblet.svg -->
+      <svg
+        class="blob"
+        style="position:absolute;left:40.6455%;top:0%;width:45.1755%;height:32.9265%"
+        width="90.350754pt"
+        height="65.853348pt"
+        viewBox="0 0 31.873738 23.231598"
+        preserveAspectRatio="none"
+        version="1.1"
+        id="svg5"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:svg="http://www.w3.org/2000/svg">
+        <g
+          id="layer1"
+          style="display:inline"
+          transform="translate(-28.677497,0.01777477)">
+          <path
+            onmouseover="hintFlub(this)"
+            onmouseout="unhintFlub(this)"
+            onclick="flub(this)"
+            id="path5883-7-7"
+            style="display:inline;fill:#c7fdff;fill-opacity:1;stroke:#000000;stroke-width:1.68054;stroke-linecap:round;stroke-linejoin:round"
+            d="m 28.47216,58.931477 c -6.177539,1.013519 -11.654724,-7.880885 -12.710499,-13.239203 -1.055776,-5.358315 1.123371,-13.739361 6.662227,-15.474675 4.946467,-1.54972 10.167998,2.359583 12.2811,6.519098"
+            class="UnoptimicedTransforms"
+            transform="matrix(-0.15532214,1.0547072,-1.0141766,-0.16152944,93.729258,-8.3522921)" />
+        </g>
+      </svg>
+
+      <!-- /bottom_bloblet.svg -->
+      <svg
+        class="blob"
+        style="position:absolute;left:17.058%;top:67.6285%;width:54.1605%;height:32.4285%"
+        width="108.32054pt"
+        height="64.857468pt"
+        viewBox="0 0 38.21308 22.880273"
+        preserveAspectRatio="none"
+        version="1.1"
+        id="svg5"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:svg="http://www.w3.org/2000/svg">
+        <g
+          id="layer1"
+          style="display:inline"
+          transform="translate(-12.035285,-47.715762)">
+          <path
+            onmouseover="hintFlub(this)"
+            onmouseout="unhintFlub(this)"
+            onclick="flub(this)"
+            id="path5883-7-7-8"
+            style="display:inline;fill:#c7fdff;fill-opacity:1;stroke:#000000;stroke-width:1.68054;stroke-linecap:round;stroke-linejoin:round"
+            d="m 21.539595,62.049782 c -6.177539,1.013519 -8.367553,-3.934141 -9.34838,-9.306683 -0.727604,-3.985496 6.335634,-18.76271 11.325524,-21.727712 3.822759,-2.27149 14.330823,-1.351767 16.443925,2.807748"
+            class="UnoptimicedTransforms"
+            transform="matrix(-0.38589751,-0.98865652,0.95066415,-0.40131953,-2.5275497,101.69359)" />
+        </g>
+      </svg>
+
+      <!-- blob.svg -->
+      <svg
+        class="blob"
+        style="position:absolute;left:7.5205%;top:7.9095%;width:92.4795%;height:82.129%"
+        width="184.95943pt"
+        height="164.25835pt"
+        viewBox="0 0 65.249576 57.946694"
+        preserveAspectRatio="none"
+        version="1.1"
+        id="svg5"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:svg="http://www.w3.org/2000/svg">
+        <g
+          id="layer1"
+          style="display:inline"
+          transform="translate(-5.3059792,-5.5805873)">
+          <path
+            onmouseover="hintFlub(this)"
+            onmouseout="unhintFlub(this)"
+            onclick="flub(this)"
+            id="path1465"
+            style="display:inline;fill:#c7fdff;fill-opacity:1;stroke:#000000;stroke-width:1.84556;stroke-linecap:round;stroke-linejoin:round"
+            d="m 69.632775,33.230544 c 0,4.518407 -4.537131,10.795706 -4.936285,14.621584 -1.110747,10.646483 -3.3065,14.752373 -14.869684,14.752373 -5.06996,0 -22.212335,-5.826085 -28.484464,-4.284293 C 10.771327,60.918736 4.6315408,43.890635 6.5999442,33.230544 8.5636897,22.595679 14.774772,4.7027075 25.114033,7.4800301 34.80726,10.083816 39.433066,6.7021378 43.290066,6.5337207 59.46919,5.8272536 69.632776,17.428128 69.632775,33.230544 Z" />
+        </g>
+      </svg>
+
+      <!-- right_bloblet.svg -->
+      <svg
+        class="blob"
+        style="position:absolute;left:47.7685%;top:16.851%;width:38.8545%;height:38.483%"
+        width="77.709038pt"
+        height="76.966484pt"
+        viewBox="0 0 27.414022 27.152065"
+        preserveAspectRatio="none"
+        version="1.1"
+        id="svg5"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:svg="http://www.w3.org/2000/svg">
+        <g
+          id="layer1"
+          style="display:inline"
+          transform="translate(-33.703243,-11.889295)">
+          <path
+            onmouseover="hintFlub(this)"
+            onmouseout="unhintFlub(this)"
+            onclick="flub(this)"
+            id="path5883-7-7-9"
+            style="display:inline;fill:#c7fdff;fill-opacity:1;stroke:#000000;stroke-width:1.681;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
+            d="m 28.47216,58.931477 c -6.177539,1.013519 -12.092461,-5.143293 -13.148236,-10.501611 -1.055776,-5.358315 1.209965,-13.619824 6.748821,-15.355138 4.946467,-1.54972 10.519141,-0.497546 12.632243,3.661969"
+            class="UnoptimicedTransforms"
+            transform="matrix(-0.60508978,0.86169387,-0.82858045,-0.62927162,100.62328,31.259327)" />
+        </g>
+      </svg>
+
+      <!-- small_bloblet.svg -->
+      <svg
+        class="blob"
+        style="position:absolute;left:46.536%;top:55.348%;width:20.309%;height:24.6555%"
+        width="40.617744pt"
+        height="49.311146pt"
+        viewBox="0 0 14.329038 17.395876"
+        preserveAspectRatio="none"
+        version="1.1"
+        id="svg5"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:svg="http://www.w3.org/2000/svg">
+        <g
+          id="layer1"
+          style="display:inline"
+          transform="translate(-32.833856,-39.051255)">
+          <path
+            onmouseover="hintFlub(this)"
+            onmouseout="unhintFlub(this)"
+            onclick="flub(this)"
+            id="path5883-7-7-9-7"
+            style="display:inline;fill:#c7fdff;fill-opacity:1;stroke:#000000;stroke-width:1.68054;stroke-linecap:round;stroke-linejoin:round"
+            d="m 26.15738,54.944589 c -3.297772,-0.05574 -5.832062,-2.605626 -6.334863,-6.865449 -0.438922,-3.71863 3.564444,-6.487278 5.400558,-7.253157 3.818965,-1.592965 7.130852,1.765821 7.315395,4.990098"
+            class="UnoptimicedTransforms"
+            transform="matrix(-1.0075486,0.2014554,-0.19371381,-1.0478143,75.355272,92.346319)" />
+        </g>
+      </svg>
+
+      <!-- left_bloblet.svg -->
+      <svg
+        class="blob"
+        style="position:absolute;left:0%;top:18.84%;width:30.278%;height:36.638%"
+        width="60.555958pt"
+        height="73.275726pt"
+        viewBox="0 0 21.362796 25.850048"
+        preserveAspectRatio="none"
+        version="1.1"
+        id="svg5"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:svg="http://www.w3.org/2000/svg">
+        <g
+          id="layer1"
+          style="display:inline"
+          transform="translate(-0.01734895,-13.2928)">
+          <path
+            onmouseover="hintFlub(this)"
+            onmouseout="unhintFlub(this)"
+            onclick="flub(this)"
+            id="path5883-7"
+            style="display:inline;fill:#c7fdff;fill-opacity:1;stroke:#000000;stroke-width:1.68054;stroke-linecap:round;stroke-linejoin:round"
+            d="m 25.337075,55.409846 c -6.177539,1.013519 -8.519639,-4.359254 -9.575414,-9.717572 -1.055776,-5.358315 2.112541,-10.105393 7.651397,-11.840707 4.946467,-1.54972 9.178828,-1.274385 11.29193,2.88513"
+            class="UnoptimicedTransforms"
+            transform="matrix(1.0260016,0,0,1.0670047,-15.089346,-21.001514)" />
+        </g>
+      </svg>
+    </div>
+  </body>
+  <script>
+    function flub(path) {
+      const blob = path.parentElement.parentElement;
+      blob.classList.add('animated');
+      setTimeout(() => blob.classList.remove('animated'), 400);
+    }
+
+    function hintFlub(path) {
+      const blob = path.parentElement.parentElement;
+      blob.classList.add('hinted');
+    }
+
+    function unhintFlub(path) {
+      const blob = path.parentElement.parentElement;
+      blob.classList.remove('hinted');
+    }
+  </script>
+</html>
