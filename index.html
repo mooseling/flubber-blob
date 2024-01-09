@@ -61,6 +61,10 @@
       animation: 0.4s linear flub;
     }
 
+    #top_bloblet.flubbing {
+      animation-duration: 2.1s;
+    }
+
     .blob.hinted {
       transform: scale(0.98);
     }
@@ -335,8 +339,10 @@
     function flub(path) {
       const blob = path.parentElement.parentElement;
 
+      const flubDuration = blob.getAttribute('id') === 'top_bloblet' ? 2100 : 400;
+
       blob.classList.add('flubbing');
-      setTimeout(() => blob.classList.remove('flubbing'), 400);
+      setTimeout(() => blob.classList.remove('flubbing'), flubDuration);
 
       const flubName = blob.getAttribute('flub');
       flubFlub(flubName);
