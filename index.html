@@ -28,7 +28,19 @@
       pointer-events: none;
     }
 
-    .blob.animated {
+    .blob:not(.flubbing) {
+      animation: 5s linear infinite;
+    }
+
+    #top_bloblet:not(.flubbing) {animation-delay: 0s;animation-name: floob-gently;}
+    #bottom_bloblet:not(.flubbing) {animation-delay: 0.5s;animation-name: floob-gently;}
+    #blob:not(.flubbing) {animation-delay: 1s;animation-name: floob-mildly;}
+    #right_bloblet:not(.flubbing) {animation-delay: 1.3s;animation-name: floob-gently;}
+    #tiny_bloblet:not(.flubbing) {animation-delay: 2.8s;animation-name: floob-slightly-alarmingly;}
+    #small_bloblet:not(.flubbing) {animation-delay: 3.25s;animation-name: floob-gently;}
+    #left_bloblet:not(.flubbing) {animation-delay: 4.5s;animation-name: floob-gently;}
+
+    .blob.flubbing {
       animation: 0.4s linear flub;
     }
 
@@ -66,15 +78,70 @@
         transform: scale(1, 1)
       }
     }
+
+    @keyframes floob-mildly {
+      0% {
+        transform: scale(1, 1);
+      }
+
+      33% {
+        transform: scale(1.01, 1.005);
+      }
+
+      67% {
+        transform: scale(0.98, 0.99);
+      }
+
+      100% {
+        transform: scale(1, 1);
+      }
+    }
+
+    @keyframes floob-gently {
+      0% {
+        transform: scale(1, 1);
+      }
+
+      33% {
+        transform: scale(1.01, 1.01);
+      }
+
+      67% {
+        transform: scale(0.98, 0.98);
+      }
+
+      100% {
+        transform: scale(1, 1);
+      }
+    }
+
+    @keyframes floob-slightly-alarmingly {
+      0% {
+        transform: scale(1, 1);
+      }
+
+      33% {
+        transform: scale(1.01, 1.03);
+      }
+
+      67% {
+        transform: scale(0.98, 0.96);
+      }
+
+      100% {
+        transform: scale(1, 1);
+      }
+    }
   </style>
 </head>
 <html>
-  <body style="width:100vw;height:100vh">
+  <body>
     <div id="main-blob-container">
       <!-- top_bloblet.svg -->
       <svg
+        id="top_bloblet"
         class="blob"
-        style="left:40.6455%;top:0%;width:45.1755%;height:32.9265%"
+        style="left:40.6455%;top:0%;width:45.1755%;height:32.9265%;"
         sound="sclllllllp"
         width="90.350754pt"
         height="65.853348pt"
@@ -100,10 +167,11 @@
         </g>
       </svg>
 
-      <!-- /bottom_bloblet.svg -->
+      <!-- bottom_bloblet.svg -->
       <svg
+        id="bottom_bloblet"
         class="blob"
-        style="left:17.058%;top:67.6285%;width:54.1605%;height:32.4285%"
+        style="left:17.058%;top:67.6285%;width:54.1605%;height:32.4285%;"
         sound="plblpbl"
         width="108.32054pt"
         height="64.857468pt"
@@ -131,8 +199,9 @@
 
       <!-- blob.svg -->
       <svg
+        id="blob"
         class="blob"
-        style="left:7.5205%;top:7.9095%;width:92.4795%;height:82.129%"
+        style="left:7.5205%;top:7.9095%;width:92.4795%;height:82.129%;"
         sound="flub"
         width="184.95943pt"
         height="164.25835pt"
@@ -158,8 +227,9 @@
 
       <!-- right_bloblet.svg -->
       <svg
+        id="right_bloblet"
         class="blob"
-        style="left:47.7685%;top:16.851%;width:38.8545%;height:38.483%"
+        style="left:47.7685%;top:16.851%;width:38.8545%;height:38.483%;"
         sound="plap"
         width="77.709038pt"
         height="76.966484pt"
@@ -187,8 +257,9 @@
 
       <!-- tiny_bloblet.svg -->
       <svg
+        id="tiny_bloblet"
         class="blob"
-        style="left:26.7535%;top:47.442%;width:14.343%;height:15.3025%"
+        style="left:26.7535%;top:47.442%;width:14.343%;height:15.3025%;"
         sound="plp"
         width="28.686306pt"
         height="30.604794pt"
@@ -217,8 +288,9 @@
 
       <!-- small_bloblet.svg -->
       <svg
+        id="small_bloblet"
         class="blob"
-        style="left:46.536%;top:55.348%;width:20.309%;height:24.6555%"
+        style="left:46.536%;top:55.348%;width:20.309%;height:24.6555%;"
         sound="pflb"
         width="40.617744pt"
         height="49.311146pt"
@@ -246,8 +318,9 @@
 
       <!-- left_bloblet.svg -->
       <svg
+        id="left_bloblet"
         class="blob"
-        style="left:0%;top:18.84%;width:30.278%;height:36.638%"
+        style="left:0%;top:18.84%;width:30.278%;height:36.638%;"
         sound="pfloop"
         width="60.555958pt"
         height="73.275726pt"
@@ -283,8 +356,8 @@
     function flub(path) {
       const blob = path.parentElement.parentElement;
 
-      blob.classList.add('animated');
-      setTimeout(() => blob.classList.remove('animated'), 400);
+      blob.classList.add('flubbing');
+      setTimeout(() => blob.classList.remove('flubbing'), 400);
 
       const soundName = blob.getAttribute('sound');
       playSound(soundName);
