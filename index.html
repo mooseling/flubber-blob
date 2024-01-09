@@ -1,115 +1,115 @@
 <!DOCTYPE html>
-<head>
-  <style>
-    body {
-      background-color: #151414;
-      margin: 0;
-      padding: 0;
-      background-size: cover;
-    }
-
-    #blob-hider {
-      opacity: 1;
-      transition: opacity 3s;
-      background-color:black;
-      width:100vw;
-      height:100vh;
-      position:relative;
-      z-index:1000;
-      color:#c7fdff;
-      text-align:center;
-      line-height:100vh;
-    }
-
-    #blob-hider.transcended {
-      opacity: 0;
-      pointer-events: none;
-    }
-
-    #main-blob-container {
-      width: 80vw;
-      height: 80vh;
-      max-width: 80vh;
-      max-height: 80vw;
-      
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-
-      animation: 10s linear infinite bask-in-blobiverse;
-    }
-
-    .blob {
-      position: absolute;
-      pointer-events: none;
-    }
-
-    .blob:not(.flubbing) {
-      animation: 5s linear infinite;
-    }
-
-    #top_bloblet:not(.flubbing) {animation-delay: 0s;animation-name: floob-gently;}
-    #bottom_bloblet:not(.flubbing) {animation-delay: 0.5s;animation-name: floob-gently;}
-    #blob:not(.flubbing) {animation-delay: 1s;animation-name: floob-mildly;}
-    #right_bloblet:not(.flubbing) {animation-delay: 1.3s;animation-name: floob-gently;}
-    #tiny_bloblet:not(.flubbing) {animation-delay: 2.8s;animation-name: floob-slightly-alarmingly;}
-    #small_bloblet:not(.flubbing) {animation-delay: 3.25s;animation-name: floob-gently;}
-    #left_bloblet:not(.flubbing) {animation-delay: 4.5s;animation-name: floob-gently;}
-
-    .blob.flubbing {
-      animation: 0.4s linear flub;
-    }
-
-    #top_bloblet.flubbing {
-      animation-duration: 2.1s;
-    }
-
-    .blob.hinted {
-      transform: scale(0.98);
-    }
-
-    .blob path {
-      cursor: pointer;
-      pointer-events: visible;
-    }
-
-    @keyframes flub {
-      0% {transform: scale(1, 1)}
-      10% {transform: scale(0.7, 0.7)}
-      40% {transform: scale(1.1, 1.1)}
-      70% {transform: scale(0.9, 0.9)}
-      85% {transform: scale(1.1, 1.1)}
-      100% {transform: scale(1, 1)}
-    }
-
-    @keyframes floob-mildly {
-      0% {transform: scale(1, 1);}
-      33% {transform: scale(1.01, 1.005);}
-      67% {transform: scale(0.98, 0.99);}
-      100% {transform: scale(1, 1);}
-    }
-
-    @keyframes floob-gently {
-      0% {transform: scale(1, 1);}
-      33% {transform: scale(1.01, 1.01);}
-      67% {transform: scale(0.98, 0.98);}
-      100% {transform: scale(1, 1);}
-    }
-
-    @keyframes floob-slightly-alarmingly {
-      0% {transform: scale(1, 1);}
-      33% {transform: scale(1.01, 1.03);}
-      67% {transform: scale(0.98, 0.96);}
-      100% {transform: scale(1, 1);}
-    }
-
-    @keyframes bask-in-blobiverse {
-      0% {transform: translate(-48%, -50%)}5% {transform: translate(-48.09788696740969%, -50.61803398874989%)}10% {transform: translate(-48.38196601125011%, -51.17557050458495%)}15% {transform: translate(-48.82442949541505%, -51.61803398874989%)}20% {transform: translate(-49.38196601125011%, -51.90211303259031%)}25% {transform: translate(-50%, -52%)}30% {transform: translate(-50.61803398874989%, -51.90211303259031%)}35% {transform: translate(-51.17557050458495%, -51.61803398874989%)}40% {transform: translate(-51.61803398874989%, -51.17557050458495%)}45% {transform: translate(-51.90211303259031%, -50.61803398874989%)}50% {transform: translate(-52%, -50%)}55% {transform: translate(-51.90211303259031%, -49.38196601125011%)}60% {transform: translate(-51.61803398874989%, -48.82442949541505%)}65% {transform: translate(-51.17557050458495%, -48.38196601125011%)}70% {transform: translate(-50.61803398874989%, -48.09788696740969%)}75% {transform: translate(-50%, -48%)}80% {transform: translate(-49.38196601125011%, -48.09788696740969%)}85% {transform: translate(-48.82442949541505%, -48.38196601125011%)}90% {transform: translate(-48.38196601125011%, -48.82442949541505%)}95% {transform: translate(-48.09788696740969%, -49.38196601125011%)}100% {transform: translate(-48%, -50%)}
-    }
-  </style>
-</head>
 <html>
+  <head>
+    <style>
+      body {
+        background-color: #151414;
+        margin: 0;
+        padding: 0;
+        background-size: cover;
+      }
+
+      #blob-hider {
+        opacity: 1;
+        transition: opacity 3s;
+        background-color:black;
+        width:100vw;
+        height:100vh;
+        position:relative;
+        z-index:1000;
+        color:#c7fdff;
+        text-align:center;
+        line-height:100vh;
+      }
+
+      #blob-hider.transcended {
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      #main-blob-container {
+        width: 80vw;
+        height: 80vh;
+        max-width: 80vh;
+        max-height: 80vw;
+        
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+
+        animation: 10s linear infinite bask-in-blobiverse;
+      }
+
+      .blob {
+        position: absolute;
+        pointer-events: none;
+      }
+
+      .blob:not(.flubbing) {
+        animation: 5s linear infinite;
+      }
+
+      #top_bloblet:not(.flubbing) {animation-delay: 0s;animation-name: floob-gently;}
+      #bottom_bloblet:not(.flubbing) {animation-delay: 0.5s;animation-name: floob-gently;}
+      #blob:not(.flubbing) {animation-delay: 1s;animation-name: floob-mildly;}
+      #right_bloblet:not(.flubbing) {animation-delay: 1.3s;animation-name: floob-gently;}
+      #tiny_bloblet:not(.flubbing) {animation-delay: 2.8s;animation-name: floob-slightly-alarmingly;}
+      #small_bloblet:not(.flubbing) {animation-delay: 3.25s;animation-name: floob-gently;}
+      #left_bloblet:not(.flubbing) {animation-delay: 4.5s;animation-name: floob-gently;}
+
+      .blob.flubbing {
+        animation: 0.4s linear flub;
+      }
+
+      #top_bloblet.flubbing {
+        animation-duration: 2.1s;
+      }
+
+      .blob.hinted {
+        transform: scale(0.98);
+      }
+
+      .blob path {
+        cursor: pointer;
+        pointer-events: visible;
+      }
+
+      @keyframes flub {
+        0% {transform: scale(1, 1)}
+        10% {transform: scale(0.7, 0.7)}
+        40% {transform: scale(1.1, 1.1)}
+        70% {transform: scale(0.9, 0.9)}
+        85% {transform: scale(1.1, 1.1)}
+        100% {transform: scale(1, 1)}
+      }
+
+      @keyframes floob-mildly {
+        0% {transform: scale(1, 1);}
+        33% {transform: scale(1.01, 1.005);}
+        67% {transform: scale(0.98, 0.99);}
+        100% {transform: scale(1, 1);}
+      }
+
+      @keyframes floob-gently {
+        0% {transform: scale(1, 1);}
+        33% {transform: scale(1.01, 1.01);}
+        67% {transform: scale(0.98, 0.98);}
+        100% {transform: scale(1, 1);}
+      }
+
+      @keyframes floob-slightly-alarmingly {
+        0% {transform: scale(1, 1);}
+        33% {transform: scale(1.01, 1.03);}
+        67% {transform: scale(0.98, 0.96);}
+        100% {transform: scale(1, 1);}
+      }
+
+      @keyframes bask-in-blobiverse {
+        0% {transform: translate(-48%, -50%)}5% {transform: translate(-48.09788696740969%, -50.61803398874989%)}10% {transform: translate(-48.38196601125011%, -51.17557050458495%)}15% {transform: translate(-48.82442949541505%, -51.61803398874989%)}20% {transform: translate(-49.38196601125011%, -51.90211303259031%)}25% {transform: translate(-50%, -52%)}30% {transform: translate(-50.61803398874989%, -51.90211303259031%)}35% {transform: translate(-51.17557050458495%, -51.61803398874989%)}40% {transform: translate(-51.61803398874989%, -51.17557050458495%)}45% {transform: translate(-51.90211303259031%, -50.61803398874989%)}50% {transform: translate(-52%, -50%)}55% {transform: translate(-51.90211303259031%, -49.38196601125011%)}60% {transform: translate(-51.61803398874989%, -48.82442949541505%)}65% {transform: translate(-51.17557050458495%, -48.38196601125011%)}70% {transform: translate(-50.61803398874989%, -48.09788696740969%)}75% {transform: translate(-50%, -48%)}80% {transform: translate(-49.38196601125011%, -48.09788696740969%)}85% {transform: translate(-48.82442949541505%, -48.38196601125011%)}90% {transform: translate(-48.38196601125011%, -48.82442949541505%)}95% {transform: translate(-48.09788696740969%, -49.38196601125011%)}100% {transform: translate(-48%, -50%)}
+      }
+    </style>
+  </head>
   <body>
     <div id="blob-hider" style="background-color:black;width:100vw;height:100vh;position:relative;z-index:1000;color:#c7fdff;text-align:center;line-height:100vh;">
       loading...
