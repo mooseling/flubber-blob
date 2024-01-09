@@ -5,10 +5,25 @@
       background-color: #151414;
       margin: 0;
       padding: 0;
-
-      /* Background image from pixabay.com/photos/cosmos-milky-way-night-sky-stars-1853491/ */
-      background-image: url("blobiverse_grainy.jpg");
       background-size: cover;
+    }
+
+    #blob-hider {
+      opacity: 1;
+      transition: opacity 3s;
+      background-color:black;
+      width:100vw;
+      height:100vh;
+      position:relative;
+      z-index:1000;
+      color:#c7fdff;
+      text-align:center;
+      line-height:100vh;
+    }
+
+    #blob-hider.transcended {
+      opacity: 0;
+      pointer-events: none;
     }
 
     #main-blob-container {
@@ -136,6 +151,10 @@
 </head>
 <html>
   <body>
+    <div id="blob-hider" style="background-color:black;width:100vw;height:100vh;position:relative;z-index:1000;color:#c7fdff;text-align:center;line-height:100vh;">
+      loading...
+    </div>
+
     <div id="main-blob-container">
       <!-- top_bloblet.svg -->
       <svg
@@ -351,7 +370,11 @@
     const audioContext = new AudioContext();
     const audioBuffers = {};
 
-    loadSounds();
+    Promise.all([loadSounds(), loadBlobiverse(), waitTwoSecondsForCalmness()])
+      .then(() => {
+        const hider = document.getElementById('blob-hider');
+        hider.classList.add('transcended');
+      })
 
     function flub(path) {
       const blob = path.parentElement.parentElement;
@@ -381,13 +404,29 @@
     }
 
     async function loadSounds() {
-      for (const blob of document.getElementsByClassName('blob')) {
-        const soundName = blob.getAttribute('sound');
-        const audioBuffer = await fetch(`recordings/${soundName}.mp3`)
+      await Promise.all(
+        Array.from(document.getElementsByClassName('blob'))
+          .map(blob => loadSound(blob.getAttribute('sound')))
+      );
+    }
+
+    async function loadSound(soundName) {
+      const audioBuffer = await fetch(`recordings/${soundName}.mp3`)
           .then(res => res.arrayBuffer())
           .then(ArrayBuffer => audioContext.decodeAudioData(ArrayBuffer));
         audioBuffers[soundName] = audioBuffer;
-      }
+    }
+
+    async function loadBlobiverse() {
+      // Background image from pixabay.com/photos/cosmos-milky-way-night-sky-stars-1853491/
+      const response = await fetch('blobiverse_grainy.jpg');
+      const blob = await response.blob();
+      const imageUrl = URL.createObjectURL(blob);
+      document.body.style.backgroundImage = `url(${imageUrl})`;
+    }
+
+    function waitTwoSecondsForCalmness() {
+      return new Promise(resolve => setTimeout(() => resolve(), 2000));
     }
   </script>
 </html>
