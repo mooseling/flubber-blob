@@ -161,7 +161,7 @@
         id="top_bloblet"
         class="blob"
         style="left:40.6455%;top:0%;width:45.1755%;height:32.9265%;"
-        sound="sclllllllp"
+        flub="sclllllllp"
         width="90.350754pt"
         height="65.853348pt"
         viewBox="0 0 31.873738 23.231598"
@@ -191,7 +191,7 @@
         id="bottom_bloblet"
         class="blob"
         style="left:17.058%;top:67.6285%;width:54.1605%;height:32.4285%;"
-        sound="plblpbl"
+        flub="plblpbl"
         width="108.32054pt"
         height="64.857468pt"
         viewBox="0 0 38.21308 22.880273"
@@ -221,7 +221,7 @@
         id="blob"
         class="blob"
         style="left:7.5205%;top:7.9095%;width:92.4795%;height:82.129%;"
-        sound="flub"
+        flub="flub"
         width="184.95943pt"
         height="164.25835pt"
         viewBox="0 0 65.249576 57.946694"
@@ -249,7 +249,7 @@
         id="right_bloblet"
         class="blob"
         style="left:47.7685%;top:16.851%;width:38.8545%;height:38.483%;"
-        sound="plap"
+        flub="plap"
         width="77.709038pt"
         height="76.966484pt"
         viewBox="0 0 27.414022 27.152065"
@@ -279,7 +279,7 @@
         id="tiny_bloblet"
         class="blob"
         style="left:26.7535%;top:47.442%;width:14.343%;height:15.3025%;"
-        sound="plp"
+        flub="plp"
         width="28.686306pt"
         height="30.604794pt"
         viewBox="0 0 10.119891 10.796691"
@@ -310,7 +310,7 @@
         id="small_bloblet"
         class="blob"
         style="left:46.536%;top:55.348%;width:20.309%;height:24.6555%;"
-        sound="pflb"
+        flub="pflb"
         width="40.617744pt"
         height="49.311146pt"
         viewBox="0 0 14.329038 17.395876"
@@ -340,7 +340,7 @@
         id="left_bloblet"
         class="blob"
         style="left:0%;top:18.84%;width:30.278%;height:36.638%;"
-        sound="pfloop"
+        flub="pfloop"
         width="60.555958pt"
         height="73.275726pt"
         viewBox="0 0 21.362796 25.850048"
@@ -367,10 +367,10 @@
     </div>
   </body>
   <script>
-    const audioContext = new AudioContext();
-    const audioBuffers = {};
+    const flubContext = new AudioContext();
+    const flubBuffers = {};
 
-    Promise.all([loadSounds(), loadBlobiverse(), waitTwoSecondsForCalmness()])
+    Promise.all([loadFlubs(), loadBlobiverse(), waitTwoSecondsForCalmness()])
       .then(() => {
         const hider = document.getElementById('blob-hider');
         hider.classList.add('transcended');
@@ -382,14 +382,14 @@
       blob.classList.add('flubbing');
       setTimeout(() => blob.classList.remove('flubbing'), 400);
 
-      const soundName = blob.getAttribute('sound');
-      playSound(soundName);
+      const flubName = blob.getAttribute('flub');
+      flubFlub(flubName);
     }
 
-    function playSound(soundName) {
-      const source = audioContext.createBufferSource();
-      source.buffer = audioBuffers[soundName];
-      source.connect(audioContext.destination);
+    function flubFlub(flubName) {
+      const source = flubContext.createBufferSource();
+      source.buffer = flubBuffers[flubName];
+      source.connect(flubContext.destination);
       source.start();
     };
 
@@ -403,18 +403,18 @@
       blob.classList.remove('hinted');
     }
 
-    async function loadSounds() {
+    async function loadFlubs() {
       await Promise.all(
         Array.from(document.getElementsByClassName('blob'))
-          .map(blob => loadSound(blob.getAttribute('sound')))
+          .map(blob => loadFlub(blob.getAttribute('flub')))
       );
     }
 
-    async function loadSound(soundName) {
-      const audioBuffer = await fetch(`recordings/${soundName}.mp3`)
+    async function loadFlub(flubName) {
+      const flubBuffer = await fetch(`recordings/${flubName}.mp3`)
           .then(res => res.arrayBuffer())
-          .then(ArrayBuffer => audioContext.decodeAudioData(ArrayBuffer));
-        audioBuffers[soundName] = audioBuffer;
+          .then(arrayBuffer => flubContext.decodeAudioData(arrayBuffer));
+        flubBuffers[flubName] = flubBuffer;
     }
 
     async function loadBlobiverse() {
@@ -426,7 +426,7 @@
     }
 
     function waitTwoSecondsForCalmness() {
-      return new Promise(resolve => setTimeout(() => resolve(), 2000));
+      return new Promise(blap => setTimeout(() => blap(), 2000));
     }
   </script>
 </html>
