@@ -378,9 +378,9 @@
 
     async function loadFlub(flubName) {
       const flubBuffer = await fetch(`recordings/${flubName}.mp3`)
-          .then(res => res.arrayBuffer())
-          .then(arrayBuffer => flubContext.decodeAudioData(arrayBuffer));
-        flubBuffers[flubName] = flubBuffer;
+        .then(res => res.arrayBuffer())
+        .then(arrayBuffer => flubContext.decodeAudioData(arrayBuffer));
+      flubBuffers[flubName] = flubBuffer;
     }
 
     async function loadBlobiverse() {
