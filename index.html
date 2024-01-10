@@ -333,6 +333,9 @@
   <script>
     const flubContext = new AudioContext();
     const flubBuffers = {};
+    
+    let isTouch = false;
+    document.addEventListener('touchstart', () => isTouch = true);
 
     Promise.all([loadFlubs(), loadBlobiverse(), waitTwoSecondsForCalmness()])
       .then(() => {
@@ -345,6 +348,7 @@
 
       const flubDuration = blob.getAttribute('id') === 'top_bloblet' ? 2100 : 400;
 
+      blob.classList.remove('hinted');
       blob.classList.add('flubbing');
       setTimeout(() => blob.classList.remove('flubbing'), flubDuration);
 
@@ -360,11 +364,15 @@
     };
 
     function hintFlub(path) {
+      if (isTouch)
+        return;
       const blob = path.parentElement.parentElement;
       blob.classList.add('hinted');
     }
 
     function unhintFlub(path) {
+      if (isTouch)
+        return;
       const blob = path.parentElement.parentElement;
       blob.classList.remove('hinted');
     }
