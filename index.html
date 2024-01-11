@@ -343,6 +343,25 @@
         hider.classList.add('transcended');
       })
 
+    // on key press, make flub noises, and animate the corresponding bit.
+    const keyToBlobletMap = {
+      'f': 'top_bloblet',
+      'l': 'bottom_bloblet',
+      'u': 'blob',
+      'b': 'right_bloblet',
+      'e': 'tiny_bloblet',
+      'r': 'small_bloblet',
+      'o': 'left_bloblet'
+    };
+
+    document.addEventListener('keydown', e => {
+      const blobletId = keyToBlobletMap[e.key];
+      if (blobletId) {
+        const path = document.getElementById(blobletId).children[0].children[0];
+        flub(path);
+      }
+    });
+
     function flub(path) {
       const blob = path.parentElement.parentElement;
 
