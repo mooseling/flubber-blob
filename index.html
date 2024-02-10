@@ -337,7 +337,7 @@
     let isTouch = false;
     document.addEventListener('touchstart', () => isTouch = true);
 
-    Promise.all([loadFlubs(), loadBlobiverse(), waitTwoSecondsForCalmness()])
+    Promise.all([loadFlubs(), loadBlobiverse(), waitTwoSecondsForCalmness(), pleaseLetTheBlobsFlub()])
       .then(() => {
         const hider = document.getElementById('blob-hider');
         hider.classList.add('transcended');
@@ -420,6 +420,15 @@
 
     function waitTwoSecondsForCalmness() {
       return new Promise(blap => setTimeout(() => blap(), 2000));
+    }
+
+    function pleaseLetTheBlobsFlub() {
+      if(/(iPad|iPhone|iPod)/g.test(navigator.userAgent)) {
+        if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia)
+          return navigator.mediaDevices.getUserMedia({video:false, audio:true});
+      }
+
+      return new Promise(blep => blep());
     }
   </script>
 </html>
